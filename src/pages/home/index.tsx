@@ -1,9 +1,34 @@
-import HomePage from "@/components/pages/Home/HomePage";
+import HomePage from "@/features/Home/HomePage";
+import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
+import { GetStaticProps } from "next";
+import { getFeaturedProducts } from "../api/featuredProducts";
 
 export default function Home() {
+  const {
+    data: featuredProductsData,
+    isLoading,
+    error,
+  } = useQuery(["featuredProducts"], getFeaturedProducts, {
+    cacheTime: 10 * 60 * 1000,
+    staleTime: 600000,
+  });
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error!</div>;
   return (
     <>
-      <HomePage />
+      <HomePage featuredProductsData={featuredProductsData} />
     </>
   );
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery(["featuredProducts"], getFeaturedProducts);
+
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  };
+};
