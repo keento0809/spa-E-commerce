@@ -18,7 +18,6 @@ export default function HomePage({ featuredProductsData }: Props) {
   } = useHomePage({
     featuredProductsData,
   });
-  // console.log(filteredProducts);
 
   // TODO: delete this later
   const labels = [
