@@ -6,11 +6,11 @@ import { useProductDetailQuery } from "@/services/product-detail";
 import { useRouter } from "next/router";
 import { getAllProducts } from "@/pages/api/getAllProducts";
 import { Product } from "@/types/product";
+import { ParsedUrlQuery } from "querystring";
 
 export default function ProductDetail() {
-  const {
-    query: { id },
-  } = useRouter();
+  const { query } = useRouter();
+  const id = query.id;
 
   const {
     data: productDetailData,
@@ -40,13 +40,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-  const { id } = ctx.params!;
   const queryClient = new QueryClient();
+  const { id } = ctx.params!;
 
   // prefetch data on the server
-  await queryClient.prefetchQuery(["productDetail"], () =>
-    getProductDetail(id)
-  );
+  if (typeof id === "string") {
+    await queryClient.prefetchQuery(["productDetail", id], () =>
+      getProductDetail(id)
+    );
+  }
 
   return {
     props: {

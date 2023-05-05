@@ -7,5 +7,8 @@ interface Props {
 }
 
 export function useProductDetailQuery({ id }: Props) {
-  return useQuery(["productDetail"], () => getProductDetail(id));
+  return useQuery(["productDetail", id], () => getProductDetail(id), {
+    cacheTime: 10 * 60 * 1000,
+    staleTime: 600000,
+  });
 }
