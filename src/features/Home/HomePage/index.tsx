@@ -1,10 +1,11 @@
-import { FeaturedProduct } from "@/types/featuredProducts";
+import { Product } from "@/types/product";
 
 interface Props {
-  featuredProductsData: FeaturedProduct[];
+  featuredProductsData: Product[];
 }
 
 export default function HomePage({ featuredProductsData }: Props) {
+  console.log(featuredProductsData);
   return (
     <div>
       <h3>HomePage</h3>
