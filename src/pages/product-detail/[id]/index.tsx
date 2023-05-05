@@ -16,7 +16,7 @@ export default function ProductDetail() {
     data: productDetailData,
     isLoading,
     error,
-  } = useProductDetailQuery(id);
+  } = useProductDetailQuery({ id });
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error!</div>;
