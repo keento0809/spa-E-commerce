@@ -3,7 +3,7 @@ import useHomePage from "@/hooks/HomePage";
 import { Product } from "@/types/product";
 import Image from "next/image";
 import SelectCheckBoxGroup from "@/components/common/SelectCheckBoxGroup";
-import { useState } from "react";
+import Link from "next/link";
 
 interface Props {
   featuredProductsData: Product[];
@@ -18,7 +18,6 @@ export default function HomePage({ featuredProductsData }: Props) {
   } = useHomePage({
     featuredProductsData,
   });
-  // console.log(filteredProducts);
 
   // TODO: delete this later
   const labels = [
@@ -53,6 +52,9 @@ export default function HomePage({ featuredProductsData }: Props) {
                 width={100}
                 height={100}
               />
+              <button>
+                <Link href={`/product-detail/${product.id}`}>Detail</Link>
+              </button>
             </div>
           );
         })}
