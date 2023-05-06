@@ -1,10 +1,18 @@
-import { Dispatch, SetStateAction, createContext } from "react";
+import { Dispatch, SetStateAction, createContext, useContext } from "react";
 
 interface GlobalLoadingCtx {
-  isLoading: boolean;
-  setIsLoading: Dispatch<SetStateAction<boolean>>;
+  isGlobalLoading: boolean;
+  setIsGlobalLoading: Dispatch<SetStateAction<boolean>>;
 }
 
 const GlobalLoadingContext = createContext<GlobalLoadingCtx | null>(null);
 
-export { GlobalLoadingContext };
+function useGlobalLoadingContext() {
+  const context = useContext(GlobalLoadingContext);
+
+  if (!context) throw new Error("Invalid context");
+
+  return context;
+}
+
+export { GlobalLoadingContext, useGlobalLoadingContext };

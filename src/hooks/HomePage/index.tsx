@@ -1,6 +1,7 @@
 import { Product } from "@/types/product";
 import { SelectedCategoriesState } from "@/types/selectedCheckBoxGroup";
 import { useEffect, useState, Dispatch, SetStateAction } from "react";
+import { useGlobalLoadingContext } from "@/contexts/GlobalLoadingContext/context";
 
 interface Props {
   featuredProductsData: Product[];
@@ -12,6 +13,7 @@ export function useHomePage({ featuredProductsData, setProductsCount }: Props) {
     useState(featuredProductsData);
   const [selectedCategories, setSelectedCategories] =
     useState<SelectedCategoriesState>({});
+  const { setIsGlobalLoading, isGlobalLoading } = useGlobalLoadingContext();
 
   const handleChangeSearchResults = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -36,11 +38,13 @@ export function useHomePage({ featuredProductsData, setProductsCount }: Props) {
   };
 
   const handleLoadMoreProducts = () => {
+    setIsGlobalLoading(true);
     setProductsCount((prevState) => prevState + 4);
   };
 
   useEffect(() => {
     setFilteredProducts(featuredProductsData);
+    isGlobalLoading && setIsGlobalLoading(false);
   }, [featuredProductsData]);
 
   useEffect(() => {
