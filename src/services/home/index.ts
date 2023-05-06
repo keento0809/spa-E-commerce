@@ -5,7 +5,11 @@ import { useState } from "react";
 export function useFeaturedProductsQuery() {
   const initialProductsCount = 8;
   const [productsCount, setProductCount] = useState(initialProductsCount);
-  const { data, isLoading, error } = useQuery(
+  const {
+    data: featuredProductsData,
+    isLoading,
+    error,
+  } = useQuery(
     ["featuredProducts", productsCount],
     () => getFeaturedProducts({ productsCount }),
     {
@@ -15,7 +19,7 @@ export function useFeaturedProductsQuery() {
     }
   );
   return {
-    data,
+    featuredProductsData,
     isLoading,
     error,
     setProductCount,

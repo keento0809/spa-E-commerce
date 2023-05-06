@@ -7,10 +7,7 @@ interface Props {
   setProductsCount: Dispatch<SetStateAction<number>>;
 }
 
-export default function useHomePage({
-  featuredProductsData,
-  setProductsCount,
-}: Props) {
+export function useHomePage({ featuredProductsData, setProductsCount }: Props) {
   const [filteredProducts, setFilteredProducts] =
     useState(featuredProductsData);
   const [selectedCategories, setSelectedCategories] =
@@ -48,9 +45,12 @@ export default function useHomePage({
 
   useEffect(() => {
     if (Object.values(selectedCategories).length > 0) {
-      setFilteredProducts(
-        featuredProductsData.filter((p) => selectedCategories[p.category])
+      const categorizedProductsData = featuredProductsData.filter(
+        (p) => selectedCategories[p.category]
       );
+      categorizedProductsData.length > 0
+        ? setFilteredProducts(categorizedProductsData)
+        : setFilteredProducts([]);
     } else {
       setFilteredProducts(featuredProductsData);
     }
