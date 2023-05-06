@@ -13,7 +13,7 @@ export default function SelectCheckBoxGroup({
 }: Props) {
   return (
     <div>
-      <h3 className="mb-4 font-semibold">Categories</h3>
+      {/* <h3 className="mb-4 font-semibold">Categories</h3> */}
       <ul className="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
         {labels.map((label) => {
           return (
@@ -30,7 +30,7 @@ export default function SelectCheckBoxGroup({
                 />
                 <label
                   htmlFor="vue-checkbox-list"
-                  className="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                  className="w-full py-4 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                 >
                   {label}
                 </label>
