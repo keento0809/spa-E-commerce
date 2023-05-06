@@ -16,7 +16,7 @@ export default function ProductDetail() {
 
   if (isLoading)
     return (
-      <div className="bg-white">
+      <div className="h-screen">
         <Loader />
       </div>
     );

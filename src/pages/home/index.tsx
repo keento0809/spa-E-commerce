@@ -3,12 +3,18 @@ import { dehydrate, QueryClient } from "@tanstack/react-query";
 import { GetStaticProps } from "next";
 import { getFeaturedProducts } from "../api/getFeaturedProducts";
 import { useFeaturedProductsQuery } from "@/services/home";
+import Loader from "@/components/common/Loader";
 
 export default function Home() {
   const { featuredProductsData, isLoading, error, setProductCount } =
     useFeaturedProductsQuery();
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading)
+    return (
+      <div className="h-screen">
+        <Loader />
+      </div>
+    );
   if (error) return <div>Error!</div>;
 
   return (

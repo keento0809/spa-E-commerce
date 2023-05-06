@@ -2,10 +2,15 @@ import React from "react";
 
 export default function Loader() {
   return (
-    <div className="flex gap-10 justify-center bg-slate-50 opacity-20">
-      <div className="w-8 h-8 bg-indigo-200 rounded-full animate-bounce" />
-      <div className="w-8 h-8 bg-indigo-200 rounded-full animate-bounce" />
-      <div className="w-8 h-8 bg-indigo-200 rounded-full animate-bounce" />
-    </div>
+    <>
+      <div className="h-screen flex flex-col justify-center items-center">
+        <span className="animate-ping inline-flex h-14 w-14 rounded-full bg-slate-900 opacity-75"></span>
+        <span className="mt-12 text-gray-800 text-center text-sm font-semibold">
+          Loading...
+        </span>
+      </div>
+    </>
   );
 }
+
+// <span className="animate-ping inline-flex h-12 w-12 rounded-full bg-slate-700 opacity-75"></span>
