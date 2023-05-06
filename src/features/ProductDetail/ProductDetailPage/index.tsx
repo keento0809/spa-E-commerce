@@ -97,7 +97,7 @@ export default function ProductDetailPage({ productDetailData }: Props) {
       </div>
       <div className="flex justify-center items-center">
         <Link
-          href={"/"}
+          href={"/#featuredProducts"}
           className=" hover:bg-gray-700 focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 bg-gray-800 py-5 md:px-16 md:w-auto w-full md:mt-12 mt-10 text-white font-medium text-base leading-4"
         >
           Back

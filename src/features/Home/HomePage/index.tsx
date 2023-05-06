@@ -68,7 +68,7 @@ export default function HomePage({
                 return (
                   <div key={product.id} className="flex items-start flex-col">
                     <div className="relative group">
-                      <div className=" flex justify-center items-center opacity-0 bg-gradient-to-t from-gray-500 via-slate-200 to-opacity-30 group-hover:opacity-50 absolute top-0 left-0 h-full w-full z-50"></div>
+                      <div className=" flex justify-center items-center opacity-0 bg-gradient-to-t from-gray-500 via-slate-200 to-opacity-30 group-hover:opacity-50 absolute top-0 left-0 h-full w-full z-30"></div>
                       <div className=" absolute bottom-0 p-8 w-full opacity-0 group-hover:opacity-100 z-50">
                         <Link
                           href={`/product-detail/${product.id}`}
