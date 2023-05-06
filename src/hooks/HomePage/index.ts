@@ -7,10 +7,7 @@ interface Props {
   setProductsCount: Dispatch<SetStateAction<number>>;
 }
 
-export default function useHomePage({
-  featuredProductsData,
-  setProductsCount,
-}: Props) {
+export function useHomePage({ featuredProductsData, setProductsCount }: Props) {
   const [filteredProducts, setFilteredProducts] =
     useState(featuredProductsData);
   const [selectedCategories, setSelectedCategories] =

@@ -1,5 +1,5 @@
 import SearchBar from "@/components/common/SearchBar";
-import useHomePage from "@/hooks/HomePage";
+import { useHomePage } from "@/hooks/HomePage";
 import { Product } from "@/types/product";
 import Image from "next/image";
 import SelectCheckBoxGroup from "@/components/common/SelectCheckBoxGroup";

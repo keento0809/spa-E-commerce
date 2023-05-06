@@ -5,12 +5,8 @@ import { getFeaturedProducts } from "../api/getFeaturedProducts";
 import { useFeaturedProductsQuery } from "@/services/home";
 
 export default function Home() {
-  const {
-    data: featuredProductsData,
-    isLoading,
-    error,
-    setProductCount,
-  } = useFeaturedProductsQuery();
+  const { featuredProductsData, isLoading, error, setProductCount } =
+    useFeaturedProductsQuery();
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error!</div>;
