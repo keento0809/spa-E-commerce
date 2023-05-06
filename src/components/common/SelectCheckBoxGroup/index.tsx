@@ -1,7 +1,8 @@
 import { SelectedCategoriesState } from "@/types/selectedCheckBoxGroup";
+import { productCategoryLabel } from "@/constants/labels";
 
 interface Props {
-  labels: string[];
+  labels: typeof productCategoryLabel;
   checkedItems: SelectedCategoriesState;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }

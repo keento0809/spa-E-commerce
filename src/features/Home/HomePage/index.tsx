@@ -6,6 +6,7 @@ import SelectCheckBoxGroup from "@/components/common/SelectCheckBoxGroup";
 import { Dispatch, SetStateAction } from "react";
 import Link from "next/link";
 import Hero from "@/components/common/Hero";
+import { productCategoryLabel } from "@/constants/labels";
 
 interface Props {
   featuredProductsData: Product[];
@@ -26,14 +27,6 @@ export default function HomePage({
     featuredProductsData,
     setProductsCount,
   });
-
-  // TODO: delete this later
-  const labels = [
-    "electronics",
-    "jewelery",
-    "men's clothing",
-    "women's clothing",
-  ];
 
   return (
     <>
@@ -56,7 +49,7 @@ export default function HomePage({
               <div className="flex justify-center pt-6">
                 <div className="basis-1/2">
                   <SelectCheckBoxGroup
-                    labels={labels}
+                    labels={productCategoryLabel}
                     checkedItems={selectedCategories}
                     onChange={handleSortByCategory}
                   />
@@ -64,10 +57,13 @@ export default function HomePage({
               </div>
             </div>
           </div>
+          {filteredProducts.length === 0 && (
+            <div className="py-8 text-xl font-semibold text-center w-full h-96">
+              No Products Found...
+            </div>
+          )}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 justify-items-between mt-8 gap-y-8 lg:gap-y-8 gap-x-8">
-            {filteredProducts.length === 0 ? (
-              <div className="py-8">No Products Found...</div>
-            ) : (
+            {filteredProducts.length !== 0 &&
               filteredProducts.map((product) => {
                 return (
                   <div key={product.id} className="flex items-start flex-col">
@@ -106,8 +102,7 @@ export default function HomePage({
                     </div>
                   </div>
                 );
-              })
-            )}
+              })}
           </div>
           <div
             onClick={handleLoadMoreProducts}
