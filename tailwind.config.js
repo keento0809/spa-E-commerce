@@ -14,6 +14,12 @@ module.exports = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      height: {
+        500: "500px",
+      },
+      minHeight: {
+        60: "60px",
+      },
     },
   },
   plugins: [require("flowbite/plugin")],

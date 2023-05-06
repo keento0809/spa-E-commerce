@@ -77,26 +77,31 @@ export default function ProductDetailPage({ productDetailData }: Props) {
             <hr className=" bg-gray-200 w-full my-2" />
           </div>
 
-          <button className="focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 focus:ring-gray-800 font-medium text-base leading-4 text-white bg-gray-800 w-full py-5 lg:mt-12 mt-6">
+          <button className="focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 focus:ring-gray-800 font-medium text-base leading-4 text-white bg-gray-800 px-12 py-5 lg:mt-12 mt-6">
             Add to shopping bag
           </button>
         </div>
 
         <div className=" w-full sm:w-96 md:w-8/12 lg:w-6/12 flex justify-center items-center lg:flex-row flex-col lg:gap-8 sm:gap-6 gap-4">
-          <div className=" w-full lg:w-8/12 bg-gray-100 flex justify-center items-center">
-            <Image
-              src={product.image}
-              alt="product-image"
-              width={400}
-              height={400}
-            />
+          <div className="bg-white px-6 py-12">
+            <div className="bg-white flex justify-center items-center w-80 h-500">
+              <Image
+                src={product.image}
+                alt="product-image"
+                width={200}
+                height={200}
+              />
+            </div>
           </div>
         </div>
       </div>
-      <div>
-        <button>
-          <Link href="/">Back</Link>
-        </button>
+      <div className=" flex justify-center items-center">
+        <Link
+          href={"/"}
+          className=" hover:bg-gray-700 focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 bg-gray-800 py-5 md:px-16 md:w-auto w-full lg:mt-28 md:mt-12 mt-10 text-white font-medium text-base leading-4"
+        >
+          Back
+        </Link>
       </div>
     </div>
   );

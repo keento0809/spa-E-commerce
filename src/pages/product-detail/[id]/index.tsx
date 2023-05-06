@@ -6,6 +6,7 @@ import { useProductDetailQuery } from "@/services/product-detail";
 import { useRouter } from "next/router";
 import { getAllProducts } from "@/pages/api/getAllProducts";
 import { Product } from "@/types/product";
+import Loader from "@/components/common/Loader";
 
 export default function ProductDetail() {
   const { query } = useRouter();
@@ -13,7 +14,12 @@ export default function ProductDetail() {
 
   const { productDetailData, isLoading, error } = useProductDetailQuery({ id });
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading)
+    return (
+      <div className="bg-white">
+        <Loader />
+      </div>
+    );
   if (error) return <div>Error!</div>;
 
   return (
