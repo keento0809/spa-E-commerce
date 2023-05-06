@@ -17,7 +17,7 @@ export default function SelectCheckBoxGroup({
       <ul className="items-center w-full text-sm font-medium text-gray-900 sm:flex dark:bg-gray-700 dark:text-white">
         {labels.map((label) => {
           return (
-            <li className="w-full">
+            <li key={label} className="w-full">
               <div className="flex items-center pl-3">
                 <input
                   id="vue-checkbox-list"
