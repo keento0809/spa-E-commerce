@@ -2,9 +2,8 @@ import { useQuery } from "@tanstack/react-query";
 import { getProductDetail } from "@/pages/api/getProductDetail";
 import { Product } from "@/types/product";
 
-// TODO: fix any type later
 interface Props {
-  id: any;
+  id: string;
 }
 
 interface ProductDetailQueryState {
@@ -18,7 +17,7 @@ export function useProductDetailQuery({ id }: Props): ProductDetailQueryState {
     data: productDetailData,
     isLoading,
     error,
-  } = useQuery(["productDetail", id], () => getProductDetail(id), {
+  } = useQuery(["productDetail", id], () => getProductDetail({ id }), {
     cacheTime: 10 * 60 * 1000,
     staleTime: 600000,
   });
