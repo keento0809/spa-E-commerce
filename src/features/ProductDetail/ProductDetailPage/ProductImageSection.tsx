@@ -8,7 +8,7 @@ export default function ProductImageSection({ product }: ProductProps) {
         <div className="flex justify-center items-center w-80 h-500">
           <Image
             src={product.image}
-            alt="product-image"
+            alt={product.title}
             width={200}
             height={200}
           />
