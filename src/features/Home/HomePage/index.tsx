@@ -5,7 +5,7 @@ import Image from "next/image";
 import SelectCheckBoxGroup from "@/components/common/SelectCheckBoxGroup";
 import { Dispatch, SetStateAction } from "react";
 import Link from "next/link";
-import Loader from "@/components/common/Loader";
+import Hero from "@/components/common/Hero";
 
 interface Props {
   featuredProductsData: Product[];
@@ -37,24 +37,32 @@ export default function HomePage({
 
   return (
     <>
-      <div className="2xl:mx-auto 2xl:container px-4 md:px-6 2xl:px-0 py-16 flex justify-center">
+      <div className="2xl:mx-auto 2xl:container px-4 md:px-6 2xl:px-0 pb-16 flex justify-center">
         <div className="w-full max-w-screen-2xl">
-          <div className="py-8 flex flex-row justify-between items-center">
-            <div className="basis-1/2 max-w-md">
-              <SearchBar onChange={handleChangeSearchResults} />
+          <Hero />
+          <div className="pt-20 pb-8">
+            <div id="featuredProducts" className="h-28"></div>
+            <div className="text-center pb-12">
+              <p className="text-3xl lg:text-4xl font-semibold leading-9">
+                Featured Products
+              </p>
             </div>
-            <div className="basis-1/2">
-              <SelectCheckBoxGroup
-                labels={labels}
-                checkedItems={selectedCategories}
-                onChange={handleSortByCategory}
-              />
+            <div className="flex flex-col justify-between">
+              <div className="flex justify-center">
+                <div className="basis-1/2 max-w-md">
+                  <SearchBar onChange={handleChangeSearchResults} />
+                </div>
+              </div>
+              <div className="flex justify-center pt-6">
+                <div className="basis-1/2">
+                  <SelectCheckBoxGroup
+                    labels={labels}
+                    checkedItems={selectedCategories}
+                    onChange={handleSortByCategory}
+                  />
+                </div>
+              </div>
             </div>
-          </div>
-          <div className="flex justify-start items-start">
-            <p className="text-3xl lg:text-4xl font-semibold leading-9">
-              Featured items
-            </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 justify-items-between mt-8 gap-y-8 lg:gap-y-8 gap-x-8">
             {filteredProducts.length === 0 ? (
@@ -66,9 +74,6 @@ export default function HomePage({
                     <div className="relative group">
                       <div className=" flex justify-center items-center opacity-0 bg-gradient-to-t from-gray-500 via-slate-200 to-opacity-30 group-hover:opacity-50 absolute top-0 left-0 h-full w-full z-50"></div>
                       <div className=" absolute bottom-0 p-8 w-full opacity-0 group-hover:opacity-100 z-50">
-                        {/* <button className=" font-medium text-base leading-4 text-gray-800 bg-white py-3 w-full">
-                          Add to bag
-                        </button> */}
                         <Link
                           href={`/product-detail/${product.id}`}
                           className="block bg-transparent font-medium text-base leading-4 border-2 border-white py-3 w-full mt-2 text-white text-center"
@@ -89,7 +94,7 @@ export default function HomePage({
                     </div>
                     <div className="flex flex-col items-start jusitfy-start mt-3 space-y-3">
                       <div>
-                        <p className="font-normal text-xl leading-5 text-gray-800 md:mt-6 mt-4 min-h-60">
+                        <p className="font-normal text-xl leading-5 text-gray-700 md:mt-6 mt-4 min-h-60">
                           {product.title}
                         </p>
                       </div>
