@@ -4,13 +4,10 @@ import { GetStaticProps } from "next";
 import { getFeaturedProducts } from "../api/getFeaturedProducts";
 import { useFeaturedProductsQuery } from "@/services/home";
 import Loader from "@/components/common/Loader";
-import { useGlobalLoadingContext } from "@/contexts/GlobalLoadingContext/context";
 
 export default function Home() {
   const { featuredProductsData, isLoading, error, setProductCount } =
     useFeaturedProductsQuery();
-  const { isGlobalLoading } = useGlobalLoadingContext();
-  console.log("isGL: ", isGlobalLoading);
 
   if (isLoading)
     return (
