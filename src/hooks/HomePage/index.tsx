@@ -1,12 +1,16 @@
 import { Product } from "@/types/product";
 import { SelectedCategoriesState } from "@/types/selectedCheckBoxGroup";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Dispatch, SetStateAction } from "react";
 
 interface Props {
   featuredProductsData: Product[];
+  setProductsCount: Dispatch<SetStateAction<number>>;
 }
 
-export default function useHomePage({ featuredProductsData }: Props) {
+export default function useHomePage({
+  featuredProductsData,
+  setProductsCount,
+}: Props) {
   const [filteredProducts, setFilteredProducts] =
     useState(featuredProductsData);
   const [selectedCategories, setSelectedCategories] =
@@ -34,6 +38,14 @@ export default function useHomePage({ featuredProductsData }: Props) {
     }
   };
 
+  const handleLoadMoreProducts = () => {
+    setProductsCount((prevState) => prevState + 4);
+  };
+
+  useEffect(() => {
+    setFilteredProducts(featuredProductsData);
+  }, [featuredProductsData]);
+
   useEffect(() => {
     if (Object.values(selectedCategories).length > 0) {
       setFilteredProducts(
@@ -49,32 +61,6 @@ export default function useHomePage({ featuredProductsData }: Props) {
     selectedCategories,
     handleChangeSearchResults,
     handleSortByCategory,
+    handleLoadMoreProducts,
   };
 }
-
-const dArray = [
-  {
-    id: 1,
-    name: "aaa",
-    category: "fruits",
-  },
-  {
-    id: 2,
-    name: "bbb",
-    category: "meet",
-  },
-  {
-    id: 3,
-    name: "ccc",
-    category: "vegetable",
-  },
-  {
-    id: 4,
-    name: "ddd",
-    category: "fruits",
-  },
-];
-
-const selectedC = {
-  fruits: true,
-};
