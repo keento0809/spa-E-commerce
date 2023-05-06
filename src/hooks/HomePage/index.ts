@@ -45,9 +45,12 @@ export function useHomePage({ featuredProductsData, setProductsCount }: Props) {
 
   useEffect(() => {
     if (Object.values(selectedCategories).length > 0) {
-      setFilteredProducts(
-        featuredProductsData.filter((p) => selectedCategories[p.category])
+      const categorizedProductsData = featuredProductsData.filter(
+        (p) => selectedCategories[p.category]
       );
+      categorizedProductsData.length > 0
+        ? setFilteredProducts(categorizedProductsData)
+        : setFilteredProducts([]);
     } else {
       setFilteredProducts(featuredProductsData);
     }

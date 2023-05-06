@@ -1,5 +1,5 @@
 import HomePage from "@/features/Home/HomePage";
-import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
+import { dehydrate, QueryClient } from "@tanstack/react-query";
 import { GetStaticProps } from "next";
 import { getFeaturedProducts } from "../api/getFeaturedProducts";
 import { useFeaturedProductsQuery } from "@/services/home";
