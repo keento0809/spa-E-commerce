@@ -25,8 +25,8 @@ export default function ProductDetailPage({ productDetailData }: Props) {
   };
 
   return (
-    <div className="2xl:container 2xl:mx-auto lg:py-16 lg:px-20 md:py-12 md:px-6 py-9 px-4 ">
-      <div className="flex justify-center items-center lg:flex-row flex-col gap-8">
+    <div className="2xl:container 2xl:mx-auto lg:py-16 lg:px-20 md:py-12 md:px-6 py-9 px-4 h-screen">
+      <div className="flex justify-center items-center lg:flex-row flex-col gap-8 pt-6">
         <div className="  w-full sm:w-96 md:w-8/12 lg:w-6/12 items-center">
           <p className=" focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 font-normal text-base leading-4 text-gray-600">
             Home / {product.category}
@@ -51,7 +51,7 @@ export default function ProductDetailPage({ productDetailData }: Props) {
               <p className=" font-medium text-base leading-4 text-gray-600">
                 Select quantity
               </p>
-              <div className="flex">
+              <div className="flex justify-center items-center">
                 <span
                   onClick={minusCount}
                   className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer border border-gray-300 border-r-0 w-7 h-7 flex items-center justify-center pb-1"
@@ -61,7 +61,7 @@ export default function ProductDetailPage({ productDetailData }: Props) {
                 <input
                   id="counter"
                   aria-label="input"
-                  className="border border-gray-300 h-full text-center w-14 pb-1"
+                  className="border border-gray-300 h-7 text-center w-14"
                   type="text"
                   value={count}
                   onChange={(e) => e.target.value}
@@ -84,7 +84,7 @@ export default function ProductDetailPage({ productDetailData }: Props) {
 
         <div className=" w-full sm:w-96 md:w-8/12 lg:w-6/12 flex justify-center items-center lg:flex-row flex-col lg:gap-8 sm:gap-6 gap-4">
           <div className="bg-white px-6 py-12">
-            <div className="bg-white flex justify-center items-center w-80 h-500">
+            <div className="flex justify-center items-center w-80 h-500">
               <Image
                 src={product.image}
                 alt="product-image"
@@ -95,10 +95,10 @@ export default function ProductDetailPage({ productDetailData }: Props) {
           </div>
         </div>
       </div>
-      <div className=" flex justify-center items-center">
+      <div className="flex justify-center items-center">
         <Link
           href={"/"}
-          className=" hover:bg-gray-700 focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 bg-gray-800 py-5 md:px-16 md:w-auto w-full lg:mt-28 md:mt-12 mt-10 text-white font-medium text-base leading-4"
+          className=" hover:bg-gray-700 focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 bg-gray-800 py-5 md:px-16 md:w-auto w-full md:mt-12 mt-10 text-white font-medium text-base leading-4"
         >
           Back
         </Link>

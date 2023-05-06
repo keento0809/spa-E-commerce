@@ -2,8 +2,8 @@ import Link from "next/link";
 
 export default function Nav() {
   return (
-    <div className="2xl:container 2xl:mx-auto">
-      <div className="bg-white rounded shadow-lg py-5 px-7">
+    <div className="2xl:container 2xl:mx-auto fixed top-0 left-0 w-full z-40">
+      <div className="bg-white rounded shadow-lg py-4 px-7">
         <nav className="flex justify-between">
           <Link href={"/"}>
             <div className="flex items-center space-x-3">
