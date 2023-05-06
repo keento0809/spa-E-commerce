@@ -8,7 +8,20 @@ interface Props {
   setProductsCount: Dispatch<SetStateAction<number>>;
 }
 
-export function useHomePage({ featuredProductsData, setProductsCount }: Props) {
+interface HomePageState {
+  filteredProducts: Product[];
+  selectedCategories: SelectedCategoriesState;
+  handleChangeSearchResults: (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => void;
+  handleSortByCategory: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  handleLoadMoreProducts: () => void;
+}
+
+export function useHomePage({
+  featuredProductsData,
+  setProductsCount,
+}: Props): HomePageState {
   const [filteredProducts, setFilteredProducts] =
     useState(featuredProductsData);
   const [selectedCategories, setSelectedCategories] =
