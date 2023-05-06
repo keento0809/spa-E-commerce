@@ -6,6 +6,7 @@ import {
   QueryClient,
 } from "@tanstack/react-query";
 import { GlobalLoadingProvider } from "@/contexts/GlobalLoadingContext";
+import Layout from "@/components/layout/Layout";
 import { useState } from "react";
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -15,7 +16,9 @@ export default function App({ Component, pageProps }: AppProps) {
       <GlobalLoadingProvider>
         <QueryClientProvider client={queryClient}>
           <Hydrate state={pageProps.dehydratedState}>
-            <Component {...pageProps} />
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
           </Hydrate>
         </QueryClientProvider>
       </GlobalLoadingProvider>

@@ -5,6 +5,7 @@ import Image from "next/image";
 import SelectCheckBoxGroup from "@/components/common/SelectCheckBoxGroup";
 import { Dispatch, SetStateAction } from "react";
 import Link from "next/link";
+import Loader from "@/components/common/Loader";
 
 interface Props {
   featuredProductsData: Product[];
