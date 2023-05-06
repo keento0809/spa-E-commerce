@@ -9,6 +9,7 @@ export default function Home() {
     data: featuredProductsData,
     isLoading,
     error,
+    setProductCount,
   } = useFeaturedProductsQuery();
 
   if (isLoading) return <div>Loading...</div>;
@@ -16,7 +17,10 @@ export default function Home() {
 
   return (
     <>
-      <HomePage featuredProductsData={featuredProductsData} />
+      <HomePage
+        featuredProductsData={featuredProductsData}
+        setProductsCount={setProductCount}
+      />
     </>
   );
 }
@@ -25,7 +29,9 @@ export const getStaticProps: GetStaticProps = async () => {
   const queryClient = new QueryClient();
 
   // prefetch data on the server
-  await queryClient.prefetchQuery(["featuredProducts"], getFeaturedProducts);
+  await queryClient.prefetchQuery(["featuredProducts"], () =>
+    getFeaturedProducts({ productsCount: 8 })
+  );
 
   return {
     props: {

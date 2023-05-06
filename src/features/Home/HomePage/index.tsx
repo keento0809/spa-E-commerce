@@ -3,20 +3,26 @@ import useHomePage from "@/hooks/HomePage";
 import { Product } from "@/types/product";
 import Image from "next/image";
 import SelectCheckBoxGroup from "@/components/common/SelectCheckBoxGroup";
-import Link from "next/link";
+import { Dispatch, SetStateAction } from "react";
 
 interface Props {
   featuredProductsData: Product[];
+  setProductsCount: Dispatch<SetStateAction<number>>;
 }
 
-export default function HomePage({ featuredProductsData }: Props) {
+export default function HomePage({
+  featuredProductsData,
+  setProductsCount,
+}: Props) {
   const {
     filteredProducts,
     selectedCategories,
     handleChangeSearchResults,
     handleSortByCategory,
+    handleLoadMoreProducts,
   } = useHomePage({
     featuredProductsData,
+    setProductsCount,
   });
 
   // TODO: delete this later
@@ -51,7 +57,7 @@ export default function HomePage({ featuredProductsData }: Props) {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 justify-items-between mt-8 gap-y-8 lg:gap-y-0 gap-x-8">
             {filteredProducts?.map((product) => {
               return (
-                <div className="flex items-start flex-col">
+                <div key={product.id} className="flex items-start flex-col">
                   <div className="relative flex justify-center items-center bg-white py-12 px-16">
                     <Image
                       src={product.image}
@@ -99,6 +105,9 @@ export default function HomePage({ featuredProductsData }: Props) {
                 </div>
               );
             })}
+          </div>
+          <div>
+            <button onClick={handleLoadMoreProducts}>Load More</button>
           </div>
         </div>
       </div>
