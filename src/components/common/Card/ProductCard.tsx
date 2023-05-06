@@ -1,20 +1,20 @@
 import { ProductProps } from "@/types/product";
 import Image from "next/image";
 import Link from "next/link";
+import DetailButton from "../Button/DetailButton";
 
 export default function ProductCard({ product }: ProductProps) {
   return (
     <div key={product.id} className="flex items-start flex-col">
       <div className="relative group">
         <div className=" flex justify-center items-center opacity-0 bg-gradient-to-t from-gray-500 via-slate-200 to-opacity-30 group-hover:opacity-50 absolute top-0 left-0 h-full w-full z-30"></div>
+
         <div className=" absolute bottom-0 p-8 w-full opacity-0 group-hover:opacity-100 z-50">
-          <Link
-            href={`/product-detail/${product.id}`}
-            className="block bg-transparent font-medium text-base leading-4 border-2 border-white py-3 w-full mt-2 text-white text-center"
-          >
-            Quick View
+          <Link href={`/product-detail/${product.id}`} className="">
+            <DetailButton text="Detail" />
           </Link>
         </div>
+
         <div className="bg-white px-6 py-12">
           <div className="relative flex justify-center items-center bg-white py-8 px-12 w-64 h-500">
             <Image

@@ -10,7 +10,11 @@ import Loader from "@/components/common/Loader";
 
 export default function ProductDetail() {
   const { query } = useRouter();
-  const id = query.id;
+
+  // To follow type guard and make sure the type of parameter for useProductDetailQuery is string,
+  // Implement these steps below
+  let id!: string;
+  if (typeof query.id === "string") id = query.id;
 
   const { productDetailData, isLoading, error } = useProductDetailQuery({ id });
 
@@ -47,7 +51,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   // prefetch data on the server
   if (typeof id === "string") {
     await queryClient.prefetchQuery(["productDetail", id], () =>
-      getProductDetail(id)
+      getProductDetail({ id })
     );
   }
 
