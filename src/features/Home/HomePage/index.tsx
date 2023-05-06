@@ -7,6 +7,7 @@ import { Dispatch, SetStateAction } from "react";
 import Link from "next/link";
 import Hero from "@/components/common/Hero";
 import { productCategoryLabel } from "@/constants/labels";
+import FilterSettings from "./FilterSettings";
 
 interface Props {
   featuredProductsData: Product[];
@@ -34,28 +35,12 @@ export default function HomePage({
         <div className="w-full max-w-screen-2xl">
           <Hero />
           <div className="pt-20 pb-8">
-            <div id="featuredProducts" className="h-28"></div>
-            <div className="text-center pb-12">
-              <p className="text-3xl lg:text-4xl font-semibold leading-9">
-                Featured Products
-              </p>
-            </div>
-            <div className="flex flex-col justify-between">
-              <div className="flex justify-center">
-                <div className="basis-1/2 max-w-md">
-                  <SearchBar onChange={handleChangeSearchResults} />
-                </div>
-              </div>
-              <div className="flex justify-center pt-6">
-                <div className="basis-1/2">
-                  <SelectCheckBoxGroup
-                    labels={productCategoryLabel}
-                    checkedItems={selectedCategories}
-                    onChange={handleSortByCategory}
-                  />
-                </div>
-              </div>
-            </div>
+            <FilterSettings
+              handleChangeSearchResults={handleChangeSearchResults}
+              labels={productCategoryLabel}
+              checkedItems={selectedCategories}
+              onChange={handleSortByCategory}
+            />
           </div>
           {filteredProducts.length === 0 && (
             <div className="py-8 text-xl font-semibold text-center w-full h-96">
