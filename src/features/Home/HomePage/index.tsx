@@ -47,7 +47,7 @@ export default function HomePage({
           </section>
           <section
             onClick={handleLoadMoreProducts}
-            className=" flex justify-center items-center"
+            className=" flex justify-center items-center mt-28"
           >
             <Button text="Load More" />
           </section>
