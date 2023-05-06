@@ -1,15 +1,10 @@
 import RatingBar from "@/components/common/RatingBar";
 import Button from "@/components/common/Button";
-import { Product } from "@/types/product";
+import { ProductProps } from "@/types/product";
 
-interface Props {
-  product: Product;
-}
-
-export default function ProductInfoSection({ product }: Props) {
+export default function ProductInfoSection({ product }: ProductProps) {
   return (
-    <>
-      {/* <section> */}
+    <div className="w-full sm:w-96 md:w-8/12 lg:w-6/12 items-center">
       <p className=" focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 font-normal text-base leading-4 text-gray-600">
         Home / {product.category}
       </p>
@@ -19,16 +14,13 @@ export default function ProductInfoSection({ product }: Props) {
       <div className="mt-5">
         <RatingBar rating={product.rating.rate} />
       </div>
-      {/* </section> */}
 
-      {/* <section> */}
       <p className=" font-normal text-base leading-6 text-gray-600 mt-7">
         {product.description}
       </p>
       <p className=" font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 mt-6 ">
         $ {product.price}
       </p>
-      {/* </section> */}
 
       <div className="lg:mt-11 mt-10">
         <div className="flex flex-row justify-between">
@@ -57,6 +49,6 @@ export default function ProductInfoSection({ product }: Props) {
           <Button text="Add to shopping bag" />
         </div>
       </div>
-    </>
+    </div>
   );
 }

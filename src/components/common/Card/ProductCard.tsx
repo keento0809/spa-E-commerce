@@ -1,12 +1,8 @@
-import { Product } from "@/types/product";
+import { ProductProps } from "@/types/product";
 import Image from "next/image";
 import Link from "next/link";
 
-interface Props {
-  product: Product;
-}
-
-export default function ProductCard({ product }: Props) {
+export default function ProductCard({ product }: ProductProps) {
   return (
     <div key={product.id} className="flex items-start flex-col">
       <div className="relative group">

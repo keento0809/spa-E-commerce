@@ -10,3 +10,7 @@ export interface Product {
   };
   title: string;
 }
+
+export interface ProductProps {
+  product: Product;
+}
