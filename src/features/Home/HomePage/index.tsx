@@ -56,7 +56,9 @@ export default function HomePage({
           <section
             onClick={handleLoadMoreProducts}
             className={`flex justify-center items-center mt-28 ${
-              Object.keys(selectedCategories).length > 0 && "hidden"
+              (Object.keys(selectedCategories).length > 0 ||
+                featuredProductsData.length === 20) &&
+              "hidden"
             }`}
           >
             <Button text="Load More" />
