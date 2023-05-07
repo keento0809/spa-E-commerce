@@ -4,7 +4,6 @@ import {
   useEffect,
   useState,
   useCallback,
-  useMemo,
   Dispatch,
   SetStateAction,
 } from "react";
@@ -41,9 +40,11 @@ export function useHomePage({
     useState<SelectedCategoriesState>({});
   const { setIsGlobalLoading, isGlobalLoading } = useGlobalLoadingContext();
 
+  const getAllCategoriesWithUseCallback = useCallback(getAllCategories, []);
+
   const { data: allCategoriesData } = useQuery(
     ["allCategories"],
-    getAllCategories,
+    getAllCategoriesWithUseCallback,
     {
       keepPreviousData: true,
       cacheTime: 10 * 60 * 1000,
@@ -66,17 +67,44 @@ export function useHomePage({
     [filteredProducts]
   );
 
+  // Helper function updating filtered products based on the selected categories
+  const handleUpdateFilteredProducts = (
+    updatedSelectedCategories: SelectedCategoriesState
+  ) => {
+    if (Object.values(updatedSelectedCategories).length > 0) {
+      const categorizedProductsData = featuredProductsData.filter(
+        (p) => updatedSelectedCategories[p.category]
+      );
+      categorizedProductsData.length > 0
+        ? setFilteredProducts(categorizedProductsData)
+        : setFilteredProducts([]);
+    } else {
+      setFilteredProducts(featuredProductsData);
+    }
+  };
+
   // Function updating products filtered by selected categories
   const handleSortByCategory = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       if (selectedCategories[event.target.name]) {
         delete selectedCategories[event.target.name];
         setSelectedCategories({ ...selectedCategories });
+
+        const updatedSelectedCategories = {
+          ...selectedCategories,
+        };
+        handleUpdateFilteredProducts(updatedSelectedCategories);
       } else {
         setSelectedCategories({
           ...selectedCategories,
           [event.target.name]: event.target.checked,
         });
+
+        const updatedSelectedCategories = {
+          ...selectedCategories,
+          [event.target.name]: event.target.checked,
+        };
+        handleUpdateFilteredProducts(updatedSelectedCategories);
       }
     },
     [selectedCategories]
@@ -94,19 +122,6 @@ export function useHomePage({
     setFilteredProducts(featuredProductsData);
     isGlobalLoading && setIsGlobalLoading(false);
   }, [featuredProductsData]);
-
-  useEffect(() => {
-    if (Object.values(selectedCategories).length > 0) {
-      const categorizedProductsData = featuredProductsData.filter(
-        (p) => selectedCategories[p.category]
-      );
-      categorizedProductsData.length > 0
-        ? setFilteredProducts(categorizedProductsData)
-        : setFilteredProducts([]);
-    } else {
-      setFilteredProducts(featuredProductsData);
-    }
-  }, [selectedCategories]);
 
   return {
     filteredProducts,

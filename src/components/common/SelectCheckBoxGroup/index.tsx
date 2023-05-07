@@ -3,15 +3,16 @@ import { productCategoryLabel } from "@/constants/labels";
 
 interface Props {
   allCategoriesData: typeof productCategoryLabel;
-  checkedItems: SelectedCategoriesState;
+  selectedCategories: SelectedCategoriesState;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export default function SelectCheckBoxGroup({
   allCategoriesData,
-  checkedItems,
+  selectedCategories,
   onChange,
 }: Props) {
+  console.log("SelectCheckbox, rendering!");
   return (
     <div>
       <ul className="items-center w-full text-sm font-medium text-gray-900 sm:flex dark:bg-gray-700 dark:text-white">
@@ -24,7 +25,7 @@ export default function SelectCheckBoxGroup({
                   type="checkbox"
                   value={label}
                   name={label}
-                  checked={checkedItems[label] ?? false}
+                  checked={selectedCategories[label] ?? false}
                   className="w-4 h-4 bg-gray-100 rounded dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 dark:bg-gray-600 cursor-pointer"
                   onChange={onChange}
                 />

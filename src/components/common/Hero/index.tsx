@@ -1,6 +1,6 @@
-import React from "react";
+import { memo } from "react";
 
-export default function Hero() {
+function Hero() {
   return (
     <div className="h-screen flex justify-center items-center w-full">
       <section className="bg-white dark:bg-gray-900">
@@ -31,3 +31,7 @@ export default function Hero() {
     </div>
   );
 }
+
+const MemorizedHero = memo(Hero);
+
+export { MemorizedHero as Hero };

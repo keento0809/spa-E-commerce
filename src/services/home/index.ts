@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { getFeaturedProducts } from "@/pages/api/getFeaturedProducts";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { Product } from "@/types/product";
 import { Dispatch, SetStateAction } from "react";
 
@@ -15,13 +15,20 @@ interface FeaturedProductsQueryState {
 export function useFeaturedProductsQuery(): FeaturedProductsQueryState {
   const initialProductsCount = 8;
   const [productsCount, setProductCount] = useState(initialProductsCount);
+
+  const getFeaturedProductsWithUserCallback = useCallback(
+    () => getFeaturedProducts({ productsCount }),
+    [productsCount]
+  );
+
   const {
     data: featuredProductsData,
     isLoading,
     error,
   } = useQuery(
     ["featuredProducts", productsCount],
-    () => getFeaturedProducts({ productsCount }),
+    getFeaturedProductsWithUserCallback,
+    // () => getFeaturedProducts({ productsCount }),
     {
       keepPreviousData: true,
       cacheTime: 10 * 60 * 1000,

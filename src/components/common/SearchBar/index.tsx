@@ -1,8 +1,11 @@
+import { memo } from "react";
+
 interface Props {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export default function SearchBar({ onChange }: Props) {
+function SearchBar({ onChange }: Props) {
+  console.log("searchBar, rendering!");
   return (
     <div className="relative">
       <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -32,3 +35,7 @@ export default function SearchBar({ onChange }: Props) {
     </div>
   );
 }
+
+const MemorizedSearchBar = memo(SearchBar);
+
+export { MemorizedSearchBar as SearchBar };

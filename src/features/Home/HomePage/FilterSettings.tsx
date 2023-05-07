@@ -1,5 +1,5 @@
 import SelectCheckBoxGroup from "@/components/common/SelectCheckBoxGroup";
-import SearchBar from "@/components/common/SearchBar";
+import { SearchBar } from "@/components/common/SearchBar";
 import { productCategoryLabel } from "@/constants/labels";
 import { SelectedCategoriesState } from "@/types/selectedCheckBoxGroup";
 
@@ -8,16 +8,17 @@ interface Props {
     event: React.ChangeEvent<HTMLInputElement>
   ) => void;
   allCategoriesData: typeof productCategoryLabel;
-  checkedItems: SelectedCategoriesState;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  selectedCategories: SelectedCategoriesState;
+  handleSortByCategory: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export default function FilterSettings({
   handleChangeSearchResults,
   allCategoriesData,
-  checkedItems,
-  onChange,
+  selectedCategories,
+  handleSortByCategory,
 }: Props) {
+  console.log("filterSettings, rendering!");
   return (
     <>
       <div id="featuredProducts" className="h-28"></div>
@@ -36,8 +37,8 @@ export default function FilterSettings({
           <div className="basis-1/2">
             <SelectCheckBoxGroup
               allCategoriesData={allCategoriesData}
-              checkedItems={checkedItems}
-              onChange={onChange}
+              selectedCategories={selectedCategories}
+              onChange={handleSortByCategory}
             />
           </div>
         </div>

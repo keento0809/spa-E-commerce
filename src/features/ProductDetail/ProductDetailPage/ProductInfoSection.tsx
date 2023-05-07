@@ -1,5 +1,5 @@
 import RatingBar from "@/components/common/RatingBar";
-import Button from "@/components/common/Button";
+import { Button } from "@/components/common/Button";
 import { ProductProps } from "@/types/product";
 
 export default function ProductInfoSection({ product }: ProductProps) {
