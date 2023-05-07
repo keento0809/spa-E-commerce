@@ -29,11 +29,6 @@ export default function HomePage({
     productsCount,
     setProductsCount,
   });
-  console.log(
-    "bool: ",
-    Object.keys(selectedCategories).length,
-    Object.keys(selectedCategories).length > 0
-  );
 
   return (
     <>
