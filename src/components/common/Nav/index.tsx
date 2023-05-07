@@ -1,6 +1,7 @@
 import Link from "next/link";
+import { memo } from "react";
 
-export default function Nav() {
+function Nav() {
   return (
     <div className="2xl:container 2xl:mx-auto fixed top-0 left-0 w-full z-40">
       <div className="bg-white rounded shadow-lg py-4 px-7">
@@ -55,3 +56,7 @@ export default function Nav() {
     </div>
   );
 }
+
+const MemorizedNav = memo(Nav);
+
+export { MemorizedNav as Nav };

@@ -9,11 +9,13 @@ import ProductsList from "@/components/common/List/ProductsList";
 
 interface Props {
   featuredProductsData: Product[];
+  productsCount: number;
   setProductsCount: Dispatch<SetStateAction<number>>;
 }
 
 export default function HomePage({
   featuredProductsData,
+  productsCount,
   setProductsCount,
 }: Props) {
   const {
@@ -25,8 +27,11 @@ export default function HomePage({
     handleLoadMoreProducts,
   } = useHomePage({
     featuredProductsData,
+    productsCount,
     setProductsCount,
   });
+
+  console.log("HomePage, rendered!");
 
   return (
     <>

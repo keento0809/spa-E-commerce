@@ -1,6 +1,6 @@
-import Link from "next/link";
+import { memo } from "react";
 
-export default function Footer() {
+function Footer() {
   return (
     <div className="mx-auto container xl:px-20 lg:px-12 sm:px-6 px-4 px-4 py-12">
       <div className="flex flex-col items-center justify-center">
@@ -63,7 +63,7 @@ export default function Footer() {
         </div>
         <div className="flex items-center mt-6">
           <p className="text-base leading-4 text-gray-800">
-            ©︎2023 <span className="font-semibold">Kento Honda</span>
+            2023 <span className="font-semibold">Kento Honda</span>
           </p>
           <div className="border-l border-gray-800 pl-2 ml-2">
             <p className="text-base leading-4 text-gray-800">
@@ -75,3 +75,7 @@ export default function Footer() {
     </div>
   );
 }
+
+const MemorizedFooter = memo(Footer);
+
+export { MemorizedFooter as Footer };

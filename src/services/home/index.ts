@@ -3,15 +3,12 @@ import { getFeaturedProducts } from "@/pages/api/getFeaturedProducts";
 import { useState } from "react";
 import { Product } from "@/types/product";
 import { Dispatch, SetStateAction } from "react";
-import { getAllCategories } from "@/pages/api/getAllCategories";
-import { productCategoryLabel } from "@/constants/labels";
-
-// type Categories =
 
 interface FeaturedProductsQueryState {
   featuredProductsData: Product[];
   isLoading: boolean;
   error: unknown;
+  productsCount: number;
   setProductCount: Dispatch<SetStateAction<number>>;
 }
 
@@ -36,6 +33,7 @@ export function useFeaturedProductsQuery(): FeaturedProductsQueryState {
     featuredProductsData,
     isLoading,
     error,
+    productsCount,
     setProductCount,
   };
 }

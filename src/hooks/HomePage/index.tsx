@@ -1,6 +1,13 @@
 import { Product } from "@/types/product";
 import { SelectedCategoriesState } from "@/types/selectedCheckBoxGroup";
-import { useEffect, useState, Dispatch, SetStateAction } from "react";
+import {
+  useEffect,
+  useState,
+  useCallback,
+  useMemo,
+  Dispatch,
+  SetStateAction,
+} from "react";
 import { useGlobalLoadingContext } from "@/contexts/GlobalLoadingContext/context";
 import { getAllCategories } from "@/pages/api/getAllCategories";
 import { useQuery } from "@tanstack/react-query";
@@ -8,6 +15,7 @@ import { productCategoryLabel } from "@/constants/labels";
 
 interface Props {
   featuredProductsData: Product[];
+  productsCount: number;
   setProductsCount: Dispatch<SetStateAction<number>>;
 }
 
@@ -24,6 +32,7 @@ interface HomePageState {
 
 export function useHomePage({
   featuredProductsData,
+  productsCount,
   setProductsCount,
 }: Props): HomePageState {
   const [filteredProducts, setFilteredProducts] =
@@ -42,33 +51,44 @@ export function useHomePage({
     }
   );
 
-  //
-  function handleChangeSearchResults(
-    event: React.ChangeEvent<HTMLInputElement>
-  ) {
-    setFilteredProducts(
-      featuredProductsData.filter((p) =>
-        p.title.toLowerCase().includes(event.target.value)
-      )
-    );
-  }
+  // Number of product for adding additionally when uses click load more button
+  const DEFAULT_ADDITIONAL_PRODUCTS_COUNT = 4;
 
-  function handleSortByCategory(event: React.ChangeEvent<HTMLInputElement>) {
-    if (selectedCategories[event.target.name]) {
-      delete selectedCategories[event.target.name];
-      setSelectedCategories({ ...selectedCategories });
-    } else {
-      setSelectedCategories({
-        ...selectedCategories,
-        [event.target.name]: event.target.checked,
-      });
-    }
-  }
+  // Function updating products filtered by input
+  const handleChangeSearchResults = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setFilteredProducts(
+        featuredProductsData.filter((p) =>
+          p.title.toLowerCase().includes(event.target.value)
+        )
+      );
+    },
+    [filteredProducts]
+  );
 
-  function handleLoadMoreProducts() {
+  // Function updating products filtered by selected categories
+  const handleSortByCategory = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      if (selectedCategories[event.target.name]) {
+        delete selectedCategories[event.target.name];
+        setSelectedCategories({ ...selectedCategories });
+      } else {
+        setSelectedCategories({
+          ...selectedCategories,
+          [event.target.name]: event.target.checked,
+        });
+      }
+    },
+    [selectedCategories]
+  );
+
+  // Function implementing pagination (load more products)
+  const handleLoadMoreProducts = useCallback(() => {
     setIsGlobalLoading(true);
-    setProductsCount((prevState) => prevState + 4);
-  }
+    setProductsCount(
+      (prevState) => prevState + DEFAULT_ADDITIONAL_PRODUCTS_COUNT
+    );
+  }, [productsCount]);
 
   useEffect(() => {
     setFilteredProducts(featuredProductsData);
