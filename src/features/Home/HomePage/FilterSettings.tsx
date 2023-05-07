@@ -18,7 +18,6 @@ export default function FilterSettings({
   selectedCategories,
   handleSortByCategory,
 }: Props) {
-  console.log("filterSettings, rendering!");
   return (
     <>
       <div id="featuredProducts" className="h-28"></div>

@@ -34,10 +34,13 @@ export function useHomePage({
   productsCount,
   setProductsCount,
 }: Props): HomePageState {
+  // React state having filtered products by product name or category
   const [filteredProducts, setFilteredProducts] =
     useState<Product[]>(featuredProductsData);
+  // React state having selected categories
   const [selectedCategories, setSelectedCategories] =
     useState<SelectedCategoriesState>({});
+
   const { setIsGlobalLoading, isGlobalLoading } = useGlobalLoadingContext();
 
   const getAllCategoriesWithUseCallback = useCallback(getAllCategories, []);
