@@ -16,7 +16,7 @@ export function useFeaturedProductsQuery(): FeaturedProductsQueryState {
   const initialProductsCount = 8;
   const [productsCount, setProductCount] = useState(initialProductsCount);
 
-  const getFeaturedProductsWithUserCallback = useCallback(
+  const getFeaturedProductsWithUseCallback = useCallback(
     () => getFeaturedProducts({ productsCount }),
     [productsCount]
   );
@@ -27,8 +27,7 @@ export function useFeaturedProductsQuery(): FeaturedProductsQueryState {
     error,
   } = useQuery(
     ["featuredProducts", productsCount],
-    getFeaturedProductsWithUserCallback,
-    // () => getFeaturedProducts({ productsCount }),
+    getFeaturedProductsWithUseCallback,
     {
       keepPreviousData: true,
       cacheTime: 10 * 60 * 1000,

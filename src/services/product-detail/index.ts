@@ -14,7 +14,7 @@ interface ProductDetailQueryState {
 }
 
 export function useProductDetailQuery({ id }: Props): ProductDetailQueryState {
-  const getProductDetailWithCallback = useCallback(
+  const getProductDetailWithUseCallback = useCallback(
     () => getProductDetail({ id }),
     [id]
   );
@@ -22,15 +22,10 @@ export function useProductDetailQuery({ id }: Props): ProductDetailQueryState {
     data: productDetailData,
     isLoading,
     error,
-  } = useQuery(
-    ["productDetail", id],
-    getProductDetailWithCallback,
-    // () => getProductDetail({ id }),
-    {
-      cacheTime: 10 * 60 * 1000,
-      staleTime: 600000,
-    }
-  );
+  } = useQuery(["productDetail", id], getProductDetailWithUseCallback, {
+    cacheTime: 10 * 60 * 1000,
+    staleTime: 600000,
+  });
   return {
     productDetailData,
     isLoading,
