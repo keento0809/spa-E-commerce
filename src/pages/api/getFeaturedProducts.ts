@@ -5,7 +5,6 @@ interface Props {
 }
 
 export async function getFeaturedProducts({ productsCount }: Props) {
-  // TODO: fix the url later
   const response = await axios.get(
     `https://fakestoreapi.com/products?limit=${productsCount}`
   );

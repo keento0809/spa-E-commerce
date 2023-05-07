@@ -19,6 +19,7 @@ export default function HomePage({
   const {
     filteredProducts,
     selectedCategories,
+    allCategoriesData,
     handleChangeSearchResults,
     handleSortByCategory,
     handleLoadMoreProducts,
@@ -37,7 +38,7 @@ export default function HomePage({
           <section className="pt-20 pb-8">
             <FilterSettings
               handleChangeSearchResults={handleChangeSearchResults}
-              labels={productCategoryLabel}
+              allCategoriesData={allCategoriesData}
               checkedItems={selectedCategories}
               onChange={handleSortByCategory}
             />
