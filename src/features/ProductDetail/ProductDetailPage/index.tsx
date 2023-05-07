@@ -15,11 +15,11 @@ export default function ProductDetailPage({ productDetailData }: Props) {
         <ProductInfoSection product={productDetailData} />
         <ProductImageSection product={productDetailData} />
       </section>
-      <section className="flex justify-center items-center mt-8">
+      {/* <section className="flex justify-center items-center mt-8">
         <Link href={"/#featuredProducts"}>
           <Button text="Back" />
         </Link>
-      </section>
+      </section> */}
     </div>
   );
 }

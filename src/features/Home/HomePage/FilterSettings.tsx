@@ -22,7 +22,7 @@ export default function FilterSettings({
     <>
       <div id="featuredProducts" className="h-28"></div>
       <div className="text-center pb-12">
-        <p className="text-3xl lg:text-4xl font-semibold leading-9">
+        <p className="text-3xl lg:text-4xl font-bold tracking-tight leading-9">
           Featured Products
         </p>
       </div>

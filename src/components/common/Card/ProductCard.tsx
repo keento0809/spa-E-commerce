@@ -28,7 +28,7 @@ export default function ProductCard({ product }: ProductProps) {
       </div>
       <div className="flex flex-col items-start jusitfy-start mt-3 space-y-3">
         <div>
-          <p className="font-normal text-xl leading-5 text-gray-700 md:mt-6 mt-4 min-h-60">
+          <p className="font-normal text-xl leading-5 text-gray-600 md:mt-6 mt-4 min-h-60">
             {product.title}
           </p>
         </div>
