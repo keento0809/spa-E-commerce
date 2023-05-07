@@ -1,5 +1,5 @@
-import Footer from "@/components/common/Footer";
-import Nav from "@/components/common/Nav";
+import { Footer } from "@/components/common/Footer";
+import { Nav } from "@/components/common/Nav";
 
 interface Props {
   children: React.ReactNode;

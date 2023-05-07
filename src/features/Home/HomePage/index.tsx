@@ -1,19 +1,20 @@
 import { useHomePage } from "@/hooks/HomePage";
 import { Product } from "@/types/product";
 import { Dispatch, SetStateAction } from "react";
-import Hero from "@/components/common/Hero";
-import { productCategoryLabel } from "@/constants/labels";
+import { Hero } from "@/components/common/Hero";
 import FilterSettings from "./FilterSettings";
-import Button from "@/components/common/Button";
+import { Button } from "@/components/common/Button";
 import ProductsList from "@/components/common/List/ProductsList";
 
 interface Props {
   featuredProductsData: Product[];
+  productsCount: number;
   setProductsCount: Dispatch<SetStateAction<number>>;
 }
 
 export default function HomePage({
   featuredProductsData,
+  productsCount,
   setProductsCount,
 }: Props) {
   const {
@@ -25,8 +26,11 @@ export default function HomePage({
     handleLoadMoreProducts,
   } = useHomePage({
     featuredProductsData,
+    productsCount,
     setProductsCount,
   });
+
+  console.log("HomePage, rendered!");
 
   return (
     <>
@@ -39,8 +43,8 @@ export default function HomePage({
             <FilterSettings
               handleChangeSearchResults={handleChangeSearchResults}
               allCategoriesData={allCategoriesData}
-              checkedItems={selectedCategories}
-              onChange={handleSortByCategory}
+              selectedCategories={selectedCategories}
+              handleSortByCategory={handleSortByCategory}
             />
           </section>
           <section>

@@ -6,8 +6,13 @@ import { useFeaturedProductsQuery } from "@/services/home";
 import Loader from "@/components/common/Loader";
 
 export default function Home() {
-  const { featuredProductsData, isLoading, error, setProductCount } =
-    useFeaturedProductsQuery();
+  const {
+    featuredProductsData,
+    isLoading,
+    error,
+    productsCount,
+    setProductCount,
+  } = useFeaturedProductsQuery();
 
   if (isLoading)
     return (
@@ -21,6 +26,7 @@ export default function Home() {
     <>
       <HomePage
         featuredProductsData={featuredProductsData}
+        productsCount={productsCount}
         setProductsCount={setProductCount}
       />
     </>

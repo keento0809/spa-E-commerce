@@ -2,7 +2,7 @@ import { Product } from "@/types/product";
 import Link from "next/link";
 import ProductImageSection from "./ProductImageSection";
 import ProductInfoSection from "./ProductInfoSection";
-import Button from "@/components/common/Button";
+import { Button } from "@/components/common/Button";
 
 interface Props {
   productDetailData: Product;
