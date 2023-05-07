@@ -3,6 +3,10 @@ import { getFeaturedProducts } from "@/pages/api/getFeaturedProducts";
 import { useState } from "react";
 import { Product } from "@/types/product";
 import { Dispatch, SetStateAction } from "react";
+import { getAllCategories } from "@/pages/api/getAllCategories";
+import { productCategoryLabel } from "@/constants/labels";
+
+// type Categories =
 
 interface FeaturedProductsQueryState {
   featuredProductsData: Product[];
@@ -27,6 +31,7 @@ export function useFeaturedProductsQuery(): FeaturedProductsQueryState {
       staleTime: 600000,
     }
   );
+
   return {
     featuredProductsData,
     isLoading,

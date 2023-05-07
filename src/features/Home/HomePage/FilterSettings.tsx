@@ -7,14 +7,14 @@ interface Props {
   handleChangeSearchResults: (
     event: React.ChangeEvent<HTMLInputElement>
   ) => void;
-  labels: typeof productCategoryLabel;
+  allCategoriesData: typeof productCategoryLabel;
   checkedItems: SelectedCategoriesState;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export default function FilterSettings({
   handleChangeSearchResults,
-  labels,
+  allCategoriesData,
   checkedItems,
   onChange,
 }: Props) {
@@ -35,7 +35,7 @@ export default function FilterSettings({
         <div className="flex justify-center pt-6">
           <div className="basis-1/2">
             <SelectCheckBoxGroup
-              labels={labels}
+              allCategoriesData={allCategoriesData}
               checkedItems={checkedItems}
               onChange={onChange}
             />
