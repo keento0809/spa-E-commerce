@@ -29,8 +29,11 @@ export default function HomePage({
     productsCount,
     setProductsCount,
   });
-
-  console.log("HomePage, rendered!");
+  console.log(
+    "bool: ",
+    Object.keys(selectedCategories).length,
+    Object.keys(selectedCategories).length > 0
+  );
 
   return (
     <>
@@ -52,7 +55,11 @@ export default function HomePage({
           </section>
           <section
             onClick={handleLoadMoreProducts}
-            className=" flex justify-center items-center mt-28"
+            className={`flex justify-center items-center mt-28 ${
+              (Object.keys(selectedCategories).length > 0 ||
+                featuredProductsData.length === 20) &&
+              "hidden"
+            }`}
           >
             <Button text="Load More" />
           </section>

@@ -12,7 +12,6 @@ export default function SelectCheckBoxGroup({
   selectedCategories,
   onChange,
 }: Props) {
-  console.log("SelectCheckbox, rendering!");
   return (
     <div>
       <ul className="items-center w-full text-sm font-medium text-gray-900 sm:flex dark:bg-gray-700 dark:text-white">
