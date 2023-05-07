@@ -16,9 +16,10 @@ function Hero() {
                 Check out SPA Shop, a next generation online shopping platform
                 exceeds your satisfaction. Everything for customers.
               </p>
+              {/* // Smooth link to ProductsList */}
               <a
                 href="#featuredProducts"
-                className="inline-flex items-center justify-center py-3 text-base font-medium text-center text-gray-900 border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
+                className="inline-flex items-center justify-center my-3 text-base font-medium text-center text-gray-900 border-gray-300 rounded-lg  focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:focus:ring-gray-800"
               >
                 <Button text="Explore" />
               </a>
@@ -26,12 +27,12 @@ function Hero() {
             <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
               <img
                 src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png"
-                alt="mockup"
+                alt="hero-image"
               />
             </div>
           </div>
         </section>
-        <section className="mt-8 absolute bottom-10 left-1/2">
+        <section className="mt-8 absolute bottom-10 left-[47.5%]">
           <div className="animate-bounce p-4 bg-white rounded-full">
             <a href="#featuredProducts">
               <ChevronDoubleDownIcon />

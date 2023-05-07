@@ -1,6 +1,7 @@
 import RatingBar from "@/components/common/RatingBar";
 import { Button } from "@/components/common/Button";
 import { ProductProps } from "@/types/product";
+import Link from "next/link";
 
 export default function ProductInfoSection({ product }: ProductProps) {
   return (
@@ -46,7 +47,10 @@ export default function ProductInfoSection({ product }: ProductProps) {
         </div>
         <hr className=" bg-gray-200 w-full my-2" />
         <div className="mt-12">
-          <Button text="Add to shopping bag" />
+          <Link href={"/#featuredProducts"}>
+            <Button text="Back" />
+          </Link>
+          {/* <Button text="Add to shopping bag" /> */}
         </div>
       </div>
     </div>

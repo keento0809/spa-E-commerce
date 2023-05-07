@@ -9,7 +9,7 @@ function Nav() {
         <nav className="flex justify-between">
           <Link href={"/"}>
             <div className="flex items-center space-x-3">
-              <h2 className="font-normal text-2xl leading-6 text-gray-800">
+              <h2 className="font-bold tracking-tight text-2xl leading-6 text-gray-800">
                 SPA Shop
               </h2>
             </div>

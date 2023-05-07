@@ -10,7 +10,7 @@ export default function ProductCard({ product }: ProductProps) {
         <div className=" flex justify-center items-center opacity-0 bg-gradient-to-t from-gray-500 via-slate-200 to-opacity-30 group-hover:opacity-50 absolute top-0 left-0 h-full w-full z-20"></div>
 
         <div className=" absolute bottom-0 p-8 w-full opacity-0 group-hover:opacity-100 z-50">
-          <Link href={`/product-detail/${product.id}`} className="">
+          <Link href={`/product-detail/${product.id}`}>
             <DetailButton text="Detail" />
           </Link>
         </div>
@@ -28,7 +28,7 @@ export default function ProductCard({ product }: ProductProps) {
       </div>
       <div className="flex flex-col items-start jusitfy-start mt-3 space-y-3">
         <div>
-          <p className="font-normal text-xl leading-5 text-gray-700 md:mt-6 mt-4 min-h-60">
+          <p className="font-normal text-xl leading-5 text-gray-600 md:mt-6 mt-4 min-h-60">
             {product.title}
           </p>
         </div>
