@@ -2,10 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getProductDetail } from "@/pages/api/getProductDetail";
 import { Product } from "@/types/product";
 import { useCallback } from "react";
-
-interface Props {
-  id: string;
-}
+import { IdProps } from "@/types";
 
 interface ProductDetailQueryState {
   productDetailData: Product;
@@ -13,7 +10,9 @@ interface ProductDetailQueryState {
   error: unknown;
 }
 
-export function useProductDetailQuery({ id }: Props): ProductDetailQueryState {
+export function useProductDetailQuery({
+  id,
+}: IdProps): ProductDetailQueryState {
   const getProductDetailWithUseCallback = useCallback(
     () => getProductDetail({ id }),
     [id]

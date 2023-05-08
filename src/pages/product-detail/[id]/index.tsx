@@ -8,6 +8,7 @@ import { getAllProducts } from "@/pages/api/getAllProducts";
 import { Product } from "@/types/product";
 import Loader from "@/components/common/Loader";
 
+// Routing for product-detail page
 export default function ProductDetail() {
   const { query } = useRouter();
 

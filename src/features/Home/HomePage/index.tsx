@@ -13,6 +13,7 @@ interface Props {
   setProductsCount: Dispatch<SetStateAction<number>>;
 }
 
+// Contents of home page
 export default function HomePage({
   featuredProductsData,
   productsCount,
