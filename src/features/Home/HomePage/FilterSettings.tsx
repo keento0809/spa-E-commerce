@@ -22,18 +22,18 @@ export default function FilterSettings({
     <>
       <div id="featuredProducts" className="h-28"></div>
       <div className="text-center pb-12">
-        <p className="text-3xl lg:text-4xl font-bold tracking-tight leading-9">
+        <p className="text-2xl lg:text-4xl font-bold tracking-tight leading-9">
           Featured Products
         </p>
       </div>
       <div className="flex flex-col justify-between">
         <div className="flex justify-center">
-          <div className="basis-1/2 max-w-md">
+          <div className="lg:basis-1/2 max-w-md min-w-[304px]">
             <SearchBar onChange={handleChangeSearchResults} />
           </div>
         </div>
         <div className="flex justify-center pt-6">
-          <div className="basis-1/2">
+          <div className="lg:basis-1/2">
             <SelectCheckBoxGroup
               allCategoriesData={allCategoriesData}
               selectedCategories={selectedCategories}

@@ -32,7 +32,7 @@ function Hero() {
             </div>
           </div>
         </section>
-        <section className="mt-8 absolute bottom-10 left-[47.5%]">
+        <section className="mt-8 absolute bottom-10">
           <div className="animate-bounce p-4 bg-white rounded-full">
             <a href="#featuredProducts">
               <ChevronDoubleDownIcon />
