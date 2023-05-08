@@ -1,5 +1,5 @@
 import SelectCheckBoxGroup from "@/components/common/SelectCheckBoxGroup";
-import { productCategoryLabel } from "@/constants/labels";
+import { ProductCategoryLabels } from "@/constants/labels";
 import {
   act,
   fireEvent,
@@ -12,7 +12,7 @@ import userEvent from "@testing-library/user-event";
 describe("selectBoxGroup", () => {
   it("should change the status as clicked", async () => {
     const mockProps = {
-      allCategoriesData: productCategoryLabel,
+      allCategoriesData: ProductCategoryLabels,
       selectedCategories: { jewelry: true },
       onChange: jest.fn(),
     };

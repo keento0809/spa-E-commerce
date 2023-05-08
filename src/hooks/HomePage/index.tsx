@@ -10,7 +10,7 @@ import {
 import { useGlobalLoadingContext } from "@/contexts/GlobalLoadingContext/context";
 import { getAllCategories } from "@/pages/api/getAllCategories";
 import { useQuery } from "@tanstack/react-query";
-import { productCategoryLabel } from "@/constants/labels";
+import { ProductCategoryLabels } from "@/constants/labels";
 
 interface Props {
   featuredProductsData: Product[];
@@ -21,7 +21,7 @@ interface Props {
 interface HomePageState {
   filteredProducts: Product[];
   selectedCategories: SelectedCategoriesState;
-  allCategoriesData: typeof productCategoryLabel;
+  allCategoriesData: typeof ProductCategoryLabels;
   isLoading: boolean;
   error: unknown;
   handleChangeSearchResults: (
