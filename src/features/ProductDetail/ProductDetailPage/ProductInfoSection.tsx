@@ -46,11 +46,10 @@ export default function ProductInfoSection({ product }: ProductProps) {
           </div>
         </div>
         <hr className=" bg-gray-200 w-full my-2" />
-        <div className="mt-12">
+        <div className="mt-12 md:text-center lg:text-start">
           <Link href={"/#featuredProducts"}>
             <Button text="Back" />
           </Link>
-          {/* <Button text="Add to shopping bag" /> */}
         </div>
       </div>
     </div>
