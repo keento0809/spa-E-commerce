@@ -9,7 +9,7 @@ export default function ProductInfoSection({ product }: ProductProps) {
       <p className=" focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 font-normal text-xs lg:text-base leading-4 text-gray-600">
         Home / {product.category}
       </p>
-      <h2 className="font-semibold text-xl lg:text-4xl text-3xl lg:leading-9 leading-6 text-gray-800 mt-4">
+      <h2 className="font-semibold text-xl lg:text-4xl lg:leading-9 leading-6 text-gray-800 mt-4">
         {product.title}
       </h2>
       <div className="mt-5">

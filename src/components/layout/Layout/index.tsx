@@ -1,11 +1,8 @@
 import { Footer } from "@/components/common/Footer";
 import { Nav } from "@/components/common/Nav";
+import { ChildrenProps } from "@/types";
 
-interface Props {
-  children: React.ReactNode;
-}
-
-export default function Layout({ children }: Props) {
+export default function Layout({ children }: ChildrenProps) {
   return (
     <>
       <Nav />

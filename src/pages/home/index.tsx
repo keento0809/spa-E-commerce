@@ -5,6 +5,7 @@ import { getFeaturedProducts } from "../api/getFeaturedProducts";
 import { useFeaturedProductsQuery } from "@/services/home";
 import Loader from "@/components/common/Loader";
 
+// Routing for home page
 export default function Home() {
   const {
     featuredProductsData,

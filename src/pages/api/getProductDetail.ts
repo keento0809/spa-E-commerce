@@ -1,10 +1,7 @@
 import axios from "axios";
+import { IdProps } from "@/types";
 
-interface Props {
-  id: string;
-}
-
-export async function getProductDetail({ id }: Props) {
+export async function getProductDetail({ id }: IdProps) {
   const response = await axios.get(`https://fakestoreapi.com/products/${id}`);
   return response.data;
 }

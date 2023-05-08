@@ -1,12 +1,9 @@
 import { useState } from "react";
 import { GlobalLoadingContext } from "./context";
 import Loader from "@/components/common/Loader";
+import { ChildrenProps } from "@/types";
 
-interface Props {
-  children: React.ReactNode;
-}
-
-export function GlobalLoadingProvider({ children }: Props) {
+export function GlobalLoadingProvider({ children }: ChildrenProps) {
   const [isGlobalLoading, setIsGlobalLoading] = useState(false);
   return (
     <GlobalLoadingContext.Provider
