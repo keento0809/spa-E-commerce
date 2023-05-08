@@ -6,17 +6,17 @@ import Link from "next/link";
 export default function ProductInfoSection({ product }: ProductProps) {
   return (
     <div className="w-full sm:w-96 md:w-8/12 lg:w-6/12 items-center">
-      <p className=" focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 font-normal text-base leading-4 text-gray-600">
+      <p className=" focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 font-normal text-xs lg:text-base leading-4 text-gray-600">
         Home / {product.category}
       </p>
-      <h2 className="font-semibold lg:text-4xl text-3xl lg:leading-9 leading-7 text-gray-800 mt-4">
+      <h2 className="font-semibold text-xl lg:text-4xl text-3xl lg:leading-9 leading-6 text-gray-800 mt-4">
         {product.title}
       </h2>
       <div className="mt-5">
         <RatingBar rating={product.rating.rate} />
       </div>
 
-      <p className=" font-normal text-base leading-6 text-gray-600 mt-7">
+      <p className=" font-normal text-sm lg:text-base leading-5 lg:leading-6 text-gray-600 mt-7">
         {product.description}
       </p>
       <p className=" font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 mt-6 ">
@@ -24,8 +24,8 @@ export default function ProductInfoSection({ product }: ProductProps) {
       </p>
 
       <div className="lg:mt-11 mt-10">
-        <div className="flex flex-row justify-between">
-          <p className=" font-medium text-base leading-4 text-gray-600">
+        <div className="flex flex-row justify-between items-center">
+          <p className="font-medium text-sm lg:text-base leading-4 text-gray-600">
             Select quantity
           </p>
           <div className="flex justify-center items-center">
