@@ -20,7 +20,7 @@ export default function Home() {
         <Loader />
       </div>
     );
-  if (error) return <div>Error!</div>;
+  if (error) return <div className="h-screen">Error!</div>;
 
   return (
     <>

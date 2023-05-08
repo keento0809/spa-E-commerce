@@ -22,6 +22,8 @@ interface HomePageState {
   filteredProducts: Product[];
   selectedCategories: SelectedCategoriesState;
   allCategoriesData: typeof productCategoryLabel;
+  isLoading: boolean;
+  error: unknown;
   handleChangeSearchResults: (
     event: React.ChangeEvent<HTMLInputElement>
   ) => void;
@@ -45,15 +47,15 @@ export function useHomePage({
 
   const getAllCategoriesWithUseCallback = useCallback(getAllCategories, []);
 
-  const { data: allCategoriesData } = useQuery(
-    ["allCategories"],
-    getAllCategoriesWithUseCallback,
-    {
-      keepPreviousData: true,
-      cacheTime: 10 * 60 * 1000,
-      staleTime: 600000,
-    }
-  );
+  const {
+    data: allCategoriesData,
+    isLoading,
+    error,
+  } = useQuery(["allCategories"], getAllCategoriesWithUseCallback, {
+    keepPreviousData: true,
+    cacheTime: 10 * 60 * 1000,
+    staleTime: 600000,
+  });
 
   // Number of product for adding additionally when uses click load more button
   const DEFAULT_ADDITIONAL_PRODUCTS_COUNT = 4;
@@ -130,6 +132,8 @@ export function useHomePage({
     filteredProducts,
     selectedCategories,
     allCategoriesData,
+    isLoading,
+    error,
     handleChangeSearchResults,
     handleSortByCategory,
     handleLoadMoreProducts,

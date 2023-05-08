@@ -5,6 +5,7 @@ import { Hero } from "@/components/common/Hero";
 import FilterSettings from "./FilterSettings";
 import { Button } from "@/components/common/Button";
 import ProductsList from "@/components/common/List/ProductsList";
+import Loader from "@/components/common/Loader";
 
 interface Props {
   featuredProductsData: Product[];
@@ -21,6 +22,8 @@ export default function HomePage({
     filteredProducts,
     selectedCategories,
     allCategoriesData,
+    isLoading,
+    error,
     handleChangeSearchResults,
     handleSortByCategory,
     handleLoadMoreProducts,
@@ -29,6 +32,20 @@ export default function HomePage({
     productsCount,
     setProductsCount,
   });
+
+  if (isLoading)
+    return (
+      <div className="h-screen">
+        <Loader />
+      </div>
+    );
+
+  if (error)
+    return (
+      <div data-testid="error" className="h-screen">
+        Error!
+      </div>
+    );
 
   return (
     <>
