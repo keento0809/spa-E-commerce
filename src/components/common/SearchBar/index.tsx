@@ -1,10 +1,21 @@
-import { memo } from "react";
+import { memo, useState } from "react";
 
 interface Props {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 function SearchBar({ onChange }: Props) {
+  const [timer, setTimer] = useState(0);
+  // Add a logic not to fetch every time use put words
+  function handleSearch() {
+    const timeoutId = setTimeout(() => {
+      onChange;
+    }, 3000);
+
+    if (timer === 0) {
+      clearTimeout(timeoutId);
+    }
+  }
   return (
     <div className="relative">
       <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">

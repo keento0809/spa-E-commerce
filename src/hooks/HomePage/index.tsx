@@ -112,7 +112,7 @@ export function useHomePage({
         handleUpdateFilteredProducts(updatedSelectedCategories);
       }
     },
-    [selectedCategories]
+    [selectedCategories, handleUpdateFilteredProducts]
   );
 
   // Function implementing pagination (load more products)
@@ -121,12 +121,12 @@ export function useHomePage({
     setProductsCount(
       (prevState) => prevState + DEFAULT_ADDITIONAL_PRODUCTS_COUNT
     );
-  }, [productsCount]);
+  }, [setIsGlobalLoading, setProductsCount]);
 
   useEffect(() => {
     setFilteredProducts(featuredProductsData);
     isGlobalLoading && setIsGlobalLoading(false);
-  }, [featuredProductsData]);
+  }, [featuredProductsData, isGlobalLoading, setIsGlobalLoading]);
 
   return {
     filteredProducts,
