@@ -1,6 +1,6 @@
 import HomePage from "@/features/Home/HomePage";
 import { dehydrate, QueryClient } from "@tanstack/react-query";
-import { GetStaticProps } from "next";
+import { GetServerSideProps, GetStaticProps } from "next";
 import { getFeaturedProducts } from "../api/getFeaturedProducts";
 import { useFeaturedProductsQuery } from "@/services/home";
 import Loader from "@/components/common/Loader";
@@ -34,7 +34,7 @@ export default function Home() {
   );
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const queryClient = new QueryClient();
 
   // prefetch data on the server
