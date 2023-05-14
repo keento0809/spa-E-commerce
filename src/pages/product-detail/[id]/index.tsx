@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import { getAllProducts } from "@/pages/api/getAllProducts";
 import { Product } from "@/types/product";
 import Loader from "@/components/common/Loader";
+import Meta from "@/meta/Meta";
 
 // Routing for product-detail page
 export default function ProductDetail() {
@@ -21,14 +22,18 @@ export default function ProductDetail() {
 
   if (isLoading)
     return (
-      <div className="h-screen">
-        <Loader />
-      </div>
+      <>
+        <Meta title="Loading" />
+        <div className="h-screen">
+          <Loader />
+        </div>
+      </>
     );
   if (error) return <div className="h-screen">Error!</div>;
 
   return (
     <>
+      <Meta title={`${productDetailData.title}`} />
       <ProductDetailPage productDetailData={productDetailData} />
     </>
   );

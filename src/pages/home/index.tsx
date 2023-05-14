@@ -4,6 +4,7 @@ import { GetServerSideProps, GetStaticProps } from "next";
 import { getFeaturedProducts } from "../api/getFeaturedProducts";
 import { useFeaturedProductsQuery } from "@/services/home";
 import Loader from "@/components/common/Loader";
+import Meta from "@/meta/Meta";
 
 // Routing for home page
 export default function Home() {
@@ -17,14 +18,18 @@ export default function Home() {
 
   if (isLoading)
     return (
-      <div className="h-screen">
-        <Loader />
-      </div>
+      <>
+        <Meta title="Loading" />
+        <div className="h-screen">
+          <Loader />
+        </div>
+      </>
     );
   if (error) return <div className="h-screen">Error!</div>;
 
   return (
     <>
+      <Meta />
       <HomePage
         featuredProductsData={featuredProductsData}
         productsCount={productsCount}
