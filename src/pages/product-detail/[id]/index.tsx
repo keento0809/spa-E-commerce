@@ -1,11 +1,9 @@
 import ProductDetailPage from "@/features/ProductDetail/ProductDetailPage";
 import { getProductDetail } from "@/pages/api/getProductDetail";
 import { dehydrate, QueryClient } from "@tanstack/react-query";
-import { GetStaticProps, GetStaticPaths } from "next";
+import { GetServerSideProps } from "next";
 import { useProductDetailQuery } from "@/services/product-detail";
 import { useRouter } from "next/router";
-import { getAllProducts } from "@/pages/api/getAllProducts";
-import { Product } from "@/types/product";
 import Loader from "@/components/common/Loader";
 import Meta from "@/meta/Meta";
 
@@ -39,18 +37,7 @@ export default function ProductDetail() {
   );
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const products = await getAllProducts();
-  const paths = products.map((product: Product) => ({
-    params: { id: product.id.toString() },
-  }));
-  return {
-    paths,
-    fallback: false,
-  };
-};
-
-export const getStaticProps: GetStaticProps = async (ctx) => {
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const queryClient = new QueryClient();
   const { id } = ctx.params!;
 
