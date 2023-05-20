@@ -1,17 +1,9 @@
-import {
-  getByLabelText,
-  getByRole,
-  render,
-  screen,
-  waitFor,
-} from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import ProductCard from "@/components/common/Card/ProductCard";
-import DetailButton from "@/components/common/Button/DetailButton";
 
 describe("ProductCard", () => {
   it("should render contents", async () => {
     // define mock data
-    const mockText = "Detail";
     const mockProductProps = {
       category: "jewelery",
       description: "This is a mock product",
@@ -28,7 +20,6 @@ describe("ProductCard", () => {
 
     // render components
     render(<ProductCard product={mockProductProps} />);
-    render(<DetailButton text={mockText} />);
 
     // get DOM
     const detailButton = screen.getByRole("button");

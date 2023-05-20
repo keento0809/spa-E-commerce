@@ -6,8 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "lint": "next lint",
     "test": "jest",
-    "lint": "next lint"
+    "coverage": "jest --coverage"
   },
   "dependencies": {
     "@tanstack/react-query": "^4.29.5",
