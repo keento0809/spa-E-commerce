@@ -40,22 +40,24 @@ const queryClient = new QueryClient({
   },
 });
 
-const mockProps = {
-  featuredProductsData: [
-    {
-      category: "jewelery",
-      description: "This is a mock product",
-      id: 0,
-      image:
-        "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png",
-      price: 0,
-      rating: {
-        count: 0,
-        rate: 3,
-      },
-      title: "Mock product",
+const mockData = [
+  {
+    category: "jewelery",
+    description: "This is a mock product",
+    id: 0,
+    image:
+      "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png",
+    price: 0,
+    rating: {
+      count: 0,
+      rate: 3,
     },
-  ],
+    title: "Mock product",
+  },
+];
+
+const mockProps = {
+  featuredProductsData: mockData,
   productsCount: 8,
   setProductsCount: jest.fn(),
 };
