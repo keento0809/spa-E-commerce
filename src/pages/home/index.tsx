@@ -1,6 +1,6 @@
 import HomePage from "@/features/Home/HomePage";
 import { dehydrate, QueryClient } from "@tanstack/react-query";
-import { GetServerSideProps, GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import { getFeaturedProducts } from "../api/getFeaturedProducts";
 import { useFeaturedProductsQuery } from "@/services/home";
 import Loader from "@/components/common/Loader";
