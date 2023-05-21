@@ -9,19 +9,41 @@ const mockProps = {
   setProductsCount: jest.fn(),
 };
 
+const MockRenderHomePage = () => {
+  return (
+    <MockProvider>
+      <HomePage {...mockProps} />
+    </MockProvider>
+  );
+};
+
 describe("home page", () => {
-  it("should render child components properly", async () => {
-    render(
-      <MockProvider>
-        <HomePage {...mockProps} />
-      </MockProvider>
-    );
+  it("should render hero component properly", async () => {
+    render(<MockRenderHomePage />);
 
     await waitFor(() => {
       const heroComponent = screen.getByTestId("hero");
       expect(heroComponent).toHaveTextContent(
         "Future E-commerce service is here"
       );
+    });
+  });
+
+  it("should render productList component properly", async () => {
+    render(<MockRenderHomePage />);
+
+    await waitFor(() => {
+      const productList = screen.getByRole("list");
+      expect(productList).toBeInTheDocument();
+    });
+  });
+
+  it("should render load more button component properly", async () => {
+    render(<MockRenderHomePage />);
+
+    await waitFor(() => {
+      const loadMoreButton = screen.getByRole("button", { name: "Load More" });
+      expect(loadMoreButton).toHaveTextContent("Load More");
     });
   });
 });
