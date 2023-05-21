@@ -19,7 +19,7 @@ export default function FilterSettings({
   handleSortByCategory,
 }: Props) {
   return (
-    <>
+    <div>
       <div id="featuredProducts" className="h-28"></div>
       <div className="text-center pb-12">
         <p className="text-2xl lg:text-4xl font-bold tracking-tight leading-9">
@@ -42,6 +42,6 @@ export default function FilterSettings({
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
