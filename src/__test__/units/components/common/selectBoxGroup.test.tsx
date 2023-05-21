@@ -2,7 +2,6 @@ import SelectCheckBoxGroup from "@/components/common/SelectCheckBoxGroup";
 import { ProductCategoryLabels } from "@/constants/labels";
 import {
   act,
-  fireEvent,
   render,
   screen,
   waitFor,

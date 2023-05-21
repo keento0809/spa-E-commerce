@@ -1,48 +1,20 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import HomePage from "@/features/Home/HomePage";
-import { Hero } from "@/components/common/Hero";
-import { GlobalLoadingProvider } from "@/contexts/GlobalLoadingContext";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-
-// Define mock data
-const mockData = [
-  {
-    category: "jewelery",
-    description: "This is a mock product",
-    id: 0,
-    image:
-      "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png",
-    price: 0,
-    rating: {
-      count: 0,
-      rate: 3,
-    },
-    title: "Mock product",
-  },
-];
+import { mockDataFromAPI } from "@/__test__/mock/api";
+import { MockProvider } from "@/__test__/mock/context";
 
 const mockProps = {
-  featuredProductsData: mockData,
+  featuredProductsData: mockDataFromAPI,
   productsCount: 8,
   setProductsCount: jest.fn(),
 };
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      retry: false,
-    },
-  },
-});
-
 describe("home page", () => {
   it("should render child components properly", async () => {
     render(
-      <GlobalLoadingProvider>
-        <QueryClientProvider client={queryClient}>
-          <HomePage {...mockProps} />
-        </QueryClientProvider>
-      </GlobalLoadingProvider>
+      <MockProvider>
+        <HomePage {...mockProps} />
+      </MockProvider>
     );
 
     await waitFor(() => {

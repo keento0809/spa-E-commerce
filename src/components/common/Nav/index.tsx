@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { memo } from "react";
-import ChevronDoubleDownIcon from "../Icon/ChevronDoubleDownIcon";
 import BellIcon from "../Icon/BellIcon";
 
 function Nav() {
