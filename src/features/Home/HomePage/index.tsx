@@ -16,7 +16,6 @@ interface Props {
 // Contents of home page
 export default function HomePage({
   featuredProductsData,
-  productsCount,
   setProductsCount,
 }: Props) {
   const {
@@ -30,7 +29,6 @@ export default function HomePage({
     handleLoadMoreProducts,
   } = useHomePage({
     featuredProductsData,
-    productsCount,
     setProductsCount,
   });
 

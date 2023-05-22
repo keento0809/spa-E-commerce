@@ -1,4 +1,4 @@
-import { screen, render } from "@testing-library/react";
+import { screen, render, waitFor } from "@testing-library/react";
 import HomePage from "@/features/Home/HomePage";
 import { mockDataFromAPI } from "@/__test__/mock/api";
 import { MockProvider } from "@/__test__/mock/context";
@@ -16,13 +16,14 @@ const mockProps = {
 
 describe("getAllCategories", () => {
   it("renders data when API call is successfully done", async () => {
-    render(
+    await render(
       <MockProvider>
         <HomePage {...mockProps} />
       </MockProvider>
     );
 
-    await screen.findByTestId("Mock product");
-    expect(screen.getByText("Mock product")).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByText("Mock product")).toBeInTheDocument();
+    });
   });
 });

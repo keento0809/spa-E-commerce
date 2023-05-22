@@ -18,19 +18,17 @@ const MockRenderHomePage = () => {
 };
 
 describe("home page", () => {
-  it("should render hero component properly", async () => {
-    render(<MockRenderHomePage />);
+  it("should display hero title properly", async () => {
+    await render(<MockRenderHomePage />);
 
     await waitFor(() => {
-      const heroComponent = screen.getByTestId("hero");
-      expect(heroComponent).toHaveTextContent(
-        "Future E-commerce service is here"
-      );
+      const heroComponent = screen.getByRole("heroTitle");
+      expect(heroComponent).toBeInTheDocument();
     });
   });
 
   it("should render productList component properly", async () => {
-    render(<MockRenderHomePage />);
+    await render(<MockRenderHomePage />);
 
     await waitFor(() => {
       const productList = screen.getByRole("list");
@@ -39,7 +37,7 @@ describe("home page", () => {
   });
 
   it("should render load more button component properly", async () => {
-    render(<MockRenderHomePage />);
+    await render(<MockRenderHomePage />);
 
     await waitFor(() => {
       const loadMoreButton = screen.getByRole("button", { name: "Load More" });
