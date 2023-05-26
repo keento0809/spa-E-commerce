@@ -1,6 +1,6 @@
 import { screen, render, waitFor } from "@testing-library/react";
 import HomePage from "@/features/Home/HomePage";
-import { mockDataFromAPI } from "@/__test__/mock/api";
+import { MockFeaturedProductsDataFromAPI } from "@/__test__/mock/data/featuredProducts";
 import { MockProvider } from "@/__test__/mock/context";
 import { mockServer } from "@/__test__/mock/api";
 
@@ -9,7 +9,7 @@ afterEach(() => mockServer.resetHandlers());
 afterAll(() => mockServer.close());
 
 const mockProps = {
-  featuredProductsData: mockDataFromAPI,
+  featuredProductsData: MockFeaturedProductsDataFromAPI,
   productsCount: 8,
   setProductsCount: jest.fn(),
 };
