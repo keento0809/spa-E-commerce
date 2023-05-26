@@ -14,7 +14,6 @@ import { ProductCategoryLabels } from "@/constants/labels";
 
 interface Props {
   featuredProductsData: Product[];
-  productsCount: number;
   setProductsCount: Dispatch<SetStateAction<number>>;
 }
 
@@ -33,7 +32,6 @@ interface HomePageState {
 
 export function useHomePage({
   featuredProductsData,
-  productsCount,
   setProductsCount,
 }: Props): HomePageState {
   // React state having filtered products by product name or category
