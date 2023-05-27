@@ -1,4 +1,4 @@
 module.exports = {
-  "**/*.(js,jsx)": [() => "eslint --cache --fix"],
-  "**/*.(ts|tsx)": [() => "npx tsc --noEmit", "eslint --cache --fix"],
+  "**/*.(js,jsx)": [() => "eslint --fix"],
+  "**/*.(ts|tsx)": [() => "npx tsc --noEmit", "eslint --fix"],
 };
