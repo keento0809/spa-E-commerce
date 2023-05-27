@@ -5,7 +5,6 @@ interface GlobalLoadingCtx {
   setIsGlobalLoading: Dispatch<SetStateAction<boolean>>;
 }
 
-// Context API checking the global loading status
 const GlobalLoadingContext = createContext<GlobalLoadingCtx | null>(null);
 
 function useGlobalLoadingContext() {
