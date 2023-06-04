@@ -1,7 +1,7 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import HomePage from "@/features/Home/HomePage";
-import { MockFeaturedProductsDataFromAPI } from "@/__test__/mock/data/featuredProducts";
-import { MockProvider } from "@/__test__/mock/context";
+import { MockFeaturedProductsDataFromAPI } from "@/__test__/__mocks__/data/featuredProducts";
+import { MockProvider } from "@/__test__/__mocks__/context";
 
 const mockProps = {
   featuredProductsData: MockFeaturedProductsDataFromAPI,
