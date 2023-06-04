@@ -1,0 +1,38 @@
+[
+  {
+    "category": "jewelery",
+    "description": "Satisfaction Guaranteed",
+    "id": 0,
+    "image": "https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg",
+    "price": 10,
+    "rating": {
+      "count": 0,
+      "rate": 3
+    },
+    "title": "Solid Gold Petite Micropave"
+  },
+  {
+    "category": "men's clothing",
+    "description": "Slim-fitting style",
+    "id": 1,
+    "image": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
+    "price": 20,
+    "rating": {
+      "count": 1,
+      "rate": 4
+    },
+    "title": "Mens Casual Premium Slim Fit T-Shirts"
+  },
+  {
+    "category": "electronics",
+    "description": "3D NAND flash are applied",
+    "id": 2,
+    "image": "https://fakestoreapi.com/img/71kWymZ+c+L._AC_SX679_.jpg",
+    "price": 30,
+    "rating": {
+      "count": 2,
+      "rate": 5
+    },
+    "title": "Silicon Power 256GB SSD"
+  }
+]

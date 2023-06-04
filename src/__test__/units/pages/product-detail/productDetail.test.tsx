@@ -1,4 +1,4 @@
-import { MockProductDetailData } from "@/__test__/mock/data/product";
+import { MockProductDetailData } from "@/__test__/__mocks__/data/product";
 import ProductDetailPage from "@/features/ProductDetail/ProductDetailPage";
 import { screen, render } from "@testing-library/react";
 

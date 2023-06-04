@@ -9,8 +9,7 @@
     "lint": "next lint",
     "test": "jest",
     "coverage": "jest --coverage",
-    "prepare": "husky install",
-    "typecheck": "tsc --pretty --noEmit"
+    "prepare": "husky install"
   },
   "dependencies": {
     "@tanstack/react-query": "^4.29.5",
