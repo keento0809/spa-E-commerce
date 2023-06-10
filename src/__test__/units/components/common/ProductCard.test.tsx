@@ -1,10 +1,11 @@
 import { render, screen } from "@testing-library/react";
 import ProductCard from "@/components/common/Card/ProductCard";
+import { Product } from "@/types/product";
 
 describe("ProductCard", () => {
   it("should render contents", async () => {
     // define mock data
-    const mockProductProps = {
+    const mockProductProps: Product = {
       category: "jewelery",
       description: "This is a mock product",
       id: 0,

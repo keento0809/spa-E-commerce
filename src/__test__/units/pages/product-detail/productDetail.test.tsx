@@ -1,8 +1,13 @@
 import { MockProductDetailData } from "@/__test__/__mocks__/data/product";
 import ProductDetailPage from "@/features/ProductDetail/ProductDetailPage";
+import { Product } from "@/types/product";
 import { screen, render } from "@testing-library/react";
 
-const mockProps = {
+interface MockProps {
+  productDetailData: Product;
+}
+
+const mockProps: MockProps = {
   productDetailData: MockProductDetailData,
 };
 

@@ -1,4 +1,6 @@
-export const MockFeaturedProductsDataFromAPI = [
+import { Product } from "@/types/product";
+
+export const MockFeaturedProductsDataFromAPI: Product[] = [
   {
     category: "jewelery",
     description: "This is a mock product",

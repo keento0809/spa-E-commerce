@@ -1,4 +1,6 @@
-export const MockProductDetailData = {
+import { Product } from "@/types/product";
+
+export const MockProductDetailData: Product = {
   category: "jewelery",
   description: "This is a mock product detail data",
   id: 1,
