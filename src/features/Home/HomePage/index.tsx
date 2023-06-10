@@ -32,6 +32,8 @@ export default function HomePage({
     setProductsCount,
   });
 
+  console.log("products: ", filteredProducts);
+
   if (isLoading)
     return (
       <div className="h-screen">
